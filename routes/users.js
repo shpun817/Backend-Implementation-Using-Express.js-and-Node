@@ -10,7 +10,6 @@ var router = express.Router();
 router.use(bodyParser.json());
 
 /* GET users listing. */
-<<<<<<< HEAD
 router.get('/', cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, function(req, res, next) {
 	User.find({})
 	.then((users) => {
@@ -19,10 +18,6 @@ router.get('/', cors.corsWithOptions, authenticate.verifyUser, authenticate.veri
 		res.json(users);
 	}, (err) => next(err))
 	.catch((err) => next(err))
-=======
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
->>>>>>> parent of 918dded... Assignment 3
 });
 
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
