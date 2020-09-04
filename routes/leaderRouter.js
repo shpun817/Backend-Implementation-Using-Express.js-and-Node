@@ -21,7 +21,11 @@ leaderRouter.route('/')
 	}, (err) => next(err))
 	.catch((err) => next(err))
 })
+<<<<<<< HEAD
 .post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+=======
+.post(authenticate.verifyUser, (req, res, next) => {
+>>>>>>> parent of 918dded... Assignment 3
 	Leaders.create(req.body)
 	.then((leader) => {
 		console.log('Leader Created ', leader);
@@ -31,12 +35,20 @@ leaderRouter.route('/')
 	}, (err) => next(err))
 	.catch((err) => next(err))
 })
+<<<<<<< HEAD
 .put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+=======
+.put(authenticate.verifyUser, (req, res, next) => {
+>>>>>>> parent of 918dded... Assignment 3
 	// Doesn't make sense
 	res.statusCode = 403;
 	res.end('PUT operation not supported on /leaders');
 })
+<<<<<<< HEAD
 .delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+=======
+.delete(authenticate.verifyUser, (req, res, next) => {
+>>>>>>> parent of 918dded... Assignment 3
 	Leaders.remove({})
 	.then((resp) => {
 		res.statusCode = 200;
@@ -57,11 +69,19 @@ leaderRouter.route('/:leaderId')
 	}, (err) => next(err))
 	.catch((err) => next(err))
 })
+<<<<<<< HEAD
 .post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
 	res.statusCode = 403;
 	res.end('POST operation not supported on /promotions/'+ req.params.leaderId);
 })
 .put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+=======
+.post(authenticate.verifyUser, (req, res, next) => {
+	res.statusCode = 403;
+	res.end('POST operation not supported on /promotions/'+ req.params.leaderId);
+})
+.put(authenticate.verifyUser, (req, res, next) => {
+>>>>>>> parent of 918dded... Assignment 3
   	Leaders.findByIdAndUpdate(req.params.leaderId, {
 		$set: req.body
 	}, {
@@ -74,7 +94,11 @@ leaderRouter.route('/:leaderId')
 	}, (err) => next(err))
 	.catch((err) => next(err))
 })
+<<<<<<< HEAD
 .delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+=======
+.delete(authenticate.verifyUser, (req, res, next) => {
+>>>>>>> parent of 918dded... Assignment 3
 	Leaders.findByIdAndRemove(req.params.leaderId)
 	.then((resp) => {
 		res.statusCode = 200;
